@@ -11,6 +11,7 @@
 | 01 | 2026-10-18 | 2 分 | 只寫 CONCEPTS.md；手邊無書原文，觀念與例子由 Claude 依一般知識整理 |
 | 02 | 2026-10-18 | 1 分 | 只寫 ARCHITECTURE.md＋ASCII 迴圈圖；五大階段名稱沿用官方常見說法，沙箱未實測 |
 | 03 | 2026-10-18 | 3 分 | ENV-CHECK.md＋claude -p 單次指令；需先清 CLAUDE* 環境變數避開巢狀限制，未進互動模式、未碰 /login |
+| 04 | 2026-10-18 | 10 分 | 書上 fingerprints repo 改用 epic-flashcard-review；4 問＋實際啟動 curl 200＋/init＋npm run 記憶，Claude 另幫子專案補 start/test script；/init 建議的 /import 略過 |
 
 ## 環境備註（2026-10-18 Yama-Desktop）
 
