@@ -25,6 +25,7 @@
 | 15 | 2026-10-18 | 5 分 | 專案 output-styles/prd-writer.md＋settings.local.json 指定，claude -p 產出六段結構 PRD；書上 /output-style 選單改用設定檔 |
 | 16 | 2026-10-18 | 2 分 | claude.yml＋review.yml（claude-code-action@v1，prompt＋claude_args 新寫法），yaml.safe_load 驗證；未裝 App、未設 secret、未 push，GitHub 上未實跑 |
 | 17 | 2026-10-18 | 2 分 | 只寫 litellm-config.yaml（Gemini／Vertex／Ollama）＋run-proxy.md，YAML 驗證；未安裝、未改環境變數、未連線 |
+| 18 | 2026-10-18 | 1 分 | 只寫 WEB-NOTES.md（流程＋與 CLI 取捨表）；網頁版需登入 claude.ai，略過實際操作 |
 
 ## 環境備註（2026-10-18 Yama-Desktop）
 
