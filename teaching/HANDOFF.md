@@ -14,6 +14,7 @@
 | 04 | 2026-10-18 | 10 分 | 書上 fingerprints repo 改用 epic-flashcard-review；4 問＋實際啟動 curl 200＋/init＋npm run 記憶，Claude 另幫子專案補 start/test script；/init 建議的 /import 略過 |
 | 05 | 2026-10-18 | 8 分 | 實測 13 個斜線指令＋五類速查表；2.1.302 已移除 /todos 與 /agents 精靈、/cost 改導 /usage；帳號與 /doctor /statusline 依限制略過 |
 | 06 | 2026-10-18 | 5 分 | 4 支腳本實跑（單次／管道／JSON 取 result／--allowedTools Read 寫檔被擋）；需清 CLAUDE* 變數＋提供 stdin，--resume 只寫說明 |
+| 07 | 2026-10-18 | 3 分 | CLAUDE.md＋CLAUDE.local.md（gitignore）＋@docs/style.md 匯入，claude -p 與 /memory 都確認三份被讀到；全域 CLAUDE.md 只寫說明 |
 
 ## 環境備註（2026-10-18 Yama-Desktop）
 
