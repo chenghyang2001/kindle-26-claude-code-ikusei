@@ -24,7 +24,7 @@ env $UNSET claude -p "<prompt>" --setting-sources project,local --permission-mod
 1. **建立 demo.py**：成功。`demo.py` 建立後出現 `__pycache__/demo.cpython-314.pyc`，證明 PostToolUse 的 py_compile 有執行；`python demo.py` 輸出 `Hello, K26!`。
 2. **嘗試寫 .env**：被擋下，`.env` 沒有建立。子 session 回報的原文：
    ```
-   PreToolUse:Write hook error: [PYTHONUTF8=1 python "$CLAUDE_PROJECT_DIR/.claude/hooks/block_env.py"]: 已阻擋：禁止寫入 .env（C:\Users\user\workspace\k26-ch10-practice\.env）。.env 存放機密，請改用 .env.example 或手動編輯。
+   PreToolUse:Write hook error: [PYTHONUTF8=1 python "$CLAUDE_PROJECT_DIR/.claude/hooks/block_env.py"]: 已阻擋：禁止寫入 .env（%USERPROFILE%\workspace\k26-ch10-practice\.env）。.env 存放機密，請改用 .env.example 或手動編輯。
    ```
 3. **hook.log 有時間**：每次啟動 `claude -p` 都追加一行（共 4 筆，其中前 2 筆是第一次因參數錯誤而沒執行 prompt 的啟動，也照樣觸發了 SessionStart）：
    ```
