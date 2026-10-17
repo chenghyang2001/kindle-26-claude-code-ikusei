@@ -27,6 +27,7 @@
 | 17 | 2026-10-18 | 2 分 | 只寫 litellm-config.yaml（Gemini／Vertex／Ollama）＋run-proxy.md，YAML 驗證；未安裝、未改環境變數、未連線 |
 | 18 | 2026-10-18 | 1 分 | 只寫 WEB-NOTES.md（流程＋與 CLI 取捨表）；網頁版需登入 claude.ai，略過實際操作 |
 | 19 | 2026-10-18 | 9 分 | specify init 後 constitution→specify→plan→tasks→implement 一路跑完，記帳 CLI pytest 42 passed；在同一 session 照 speckit 指令檔執行，未逐一手打斜線指令 |
+| 20 | 2026-10-18 | 3 分 | ccusage daily 近 8 天只留日期／Tokens／Cost 欄；GLM 與 Ollama＋LiteLLM 只寫步驟未實測 |
 
 ## 環境備註（2026-10-18 Yama-Desktop）
 
