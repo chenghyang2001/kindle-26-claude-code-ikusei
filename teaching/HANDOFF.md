@@ -18,6 +18,7 @@
 | 08 | 2026-10-18 | 6 分 | pdf-text skill（pypdf 裝專案 .venv）轉出 sample.txt；同 session 新建的 skill 下一輪才載入，第一次是直接跑腳本、第二次才正式經 Skill 觸發 |
 | 09 | 2026-10-18 | 6 分 | 專案 settings deny 擋下讀 secrets、env DEMO_FLAG 以 printenv 驗證（echo $VAR 被權限擋）；isolated 開窗多一個外部匯入確認，選預設 No |
 | 10 | 2026-10-18 | 3 分 | 三個 hook 以 python 腳本實作並經 claude -p 觸發：py_compile、.env 寫入 exit 2 被擋、SessionStart 寫 hook.log；--allowedTools 參數位置會吃掉 prompt |
+| 11 | 2026-10-18 | 4 分 | 本機 marketplace＋doc-gen（指令／skill／hook）project scope 安裝實測後移除；install 仍會在 ~/.claude/plugins/cache 留副本（已刪），全域 settings 與 plugins 索引比對一致 |
 
 ## 環境備註（2026-10-18 Yama-Desktop）
 
