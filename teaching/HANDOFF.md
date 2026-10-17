@@ -23,6 +23,7 @@
 | 13 | 2026-10-18 | 5 分 | filesystem＋sequential-thinking 實接（mcp list ✔ Connected，Windows 需 cmd /c npx）；需 token 的 5 類只寫 MCP-CATALOG.md 範本 |
 | 14 | 2026-10-18 | 6 分 | 專案 agents 2 個＋修 bug；兩個 worktree 平行子代理後合併、清理；同 session 新建的 agent 定義未載入，改由 general-purpose 照定義執行；書上兩個終端機改成一個主對話派兩個子代理 |
 | 15 | 2026-10-18 | 5 分 | 專案 output-styles/prd-writer.md＋settings.local.json 指定，claude -p 產出六段結構 PRD；書上 /output-style 選單改用設定檔 |
+| 16 | 2026-10-18 | 2 分 | claude.yml＋review.yml（claude-code-action@v1，prompt＋claude_args 新寫法），yaml.safe_load 驗證；未裝 App、未設 secret、未 push，GitHub 上未實跑 |
 
 ## 環境備註（2026-10-18 Yama-Desktop）
 
