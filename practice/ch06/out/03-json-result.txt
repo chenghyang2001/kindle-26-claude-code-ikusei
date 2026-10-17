@@ -1,0 +1,4 @@
+result = JSON（JavaScript Object Notation）是一種輕量的純文字資料格式，用「鍵: 值」配對和陣列來表示結構化資料，人看得懂、程式也好解析，常用來在程式之間交換資料，例如 `{"name": "小明", "age": 18}`。
+session_id = 913467ef-71eb-4c62-996f-36e7b5fac439
+num_turns = 1
+total_cost_usd = 0.0208068

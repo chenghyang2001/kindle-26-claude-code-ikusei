@@ -1,0 +1,70 @@
+# K26 Ch24 電商網站本機版 E2E 測試
+# 時間：2026-10-18 05:40:29　目標：http://127.0.0.1:3700　cartId：e2e_1792273229
+
+===== 1. 列出商品 =====
+$ curl http://127.0.0.1:3700/api/products
+{"products":[{"id":"p001","name":"手沖咖啡豆 衣索比亞 250g","price":420,"stock":20,"emoji":"☕","description":"淺焙，柑橘與花香調性"},{"id":"p002","name":"保溫隨行杯 450ml","price":680,"stock":15,"emoji":"🥤","description":"雙層真空，保冷保溫 12 小時"},{"id":"p003","name":"帆布托特包","price":550,"stock":10,"emoji":"👜","description":"厚磅帆布，可放 14 吋筆電"},{"id":"p004","name":"無線藍牙耳機","price":1290,"stock":8,"emoji":"🎧","description":"降噪，續航 24 小時"},{"id":"p005","name":"手寫筆記本 A5","price":180,"stock":50,"emoji":"📓","description":"點格內頁 120 頁"},{"id":"p006","name":"多肉小盆栽","price":250,"stock":0,"emoji":"🪴","description":"已售完，示範缺貨狀態"}]}
+[HTTP 200]
+
+===== 2a. 加入購物車：咖啡豆 ×2 =====
+$ curl -X POST -H Content-Type: application/json -d {"productId":"p001","qty":2} http://127.0.0.1:3700/api/cart/e2e_1792273229/items
+{"cart":{"cartId":"e2e_1792273229","items":[{"productId":"p001","name":"手沖咖啡豆 衣索比亞 250g","emoji":"☕","price":420,"qty":2,"subtotal":840}],"count":2,"total":840}}
+[HTTP 200]
+
+===== 2b. 加入購物車：筆記本 ×1 =====
+$ curl -X POST -H Content-Type: application/json -d {"productId":"p005","qty":1} http://127.0.0.1:3700/api/cart/e2e_1792273229/items
+{"cart":{"cartId":"e2e_1792273229","items":[{"productId":"p001","name":"手沖咖啡豆 衣索比亞 250g","emoji":"☕","price":420,"qty":2,"subtotal":840},{"productId":"p005","name":"手寫筆記本 A5","emoji":"📓","price":180,"qty":1,"subtotal":180}],"count":3,"total":1020}}
+[HTTP 200]
+
+===== 2c. 查看購物車 =====
+$ curl http://127.0.0.1:3700/api/cart/e2e_1792273229
+{"cart":{"cartId":"e2e_1792273229","items":[{"productId":"p001","name":"手沖咖啡豆 衣索比亞 250g","emoji":"☕","price":420,"qty":2,"subtotal":840},{"productId":"p005","name":"手寫筆記本 A5","emoji":"📓","price":180,"qty":1,"subtotal":180}],"count":3,"total":1020}}
+[HTTP 200]
+
+===== 3. 結帳 =====
+$ printf '{...王小明...}' | curl -X POST --data-binary @- http://127.0.0.1:3700/api/checkout（cartId=e2e_1792273229, phone=0912345678）
+{"order":{"id":"ORD-MVCX7EO7-7764","createdAt":"2026-10-17T21:40:29.575Z","status":"已成立","customer":{"name":"王小明","phone":"0912345678","address":"台北市信義區市府路1號"},"items":[{"productId":"p001","name":"手沖咖啡豆 衣索比亞 250g","emoji":"☕","price":420,"qty":2,"subtotal":840},{"productId":"p005","name":"手寫筆記本 A5","emoji":"📓","price":180,"qty":1,"subtotal":180}],"total":1020}}
+[HTTP 201]
+
+===== 4a. 依訂單編號查詢：ORD-MVCX7EO7-7764 =====
+$ curl http://127.0.0.1:3700/api/orders/ORD-MVCX7EO7-7764
+{"order":{"id":"ORD-MVCX7EO7-7764","createdAt":"2026-10-17T21:40:29.575Z","status":"已成立","customer":{"name":"王小明","phone":"0912345678","address":"台北市信義區市府路1號"},"items":[{"productId":"p001","name":"手沖咖啡豆 衣索比亞 250g","emoji":"☕","price":420,"qty":2,"subtotal":840},{"productId":"p005","name":"手寫筆記本 A5","emoji":"📓","price":180,"qty":1,"subtotal":180}],"total":1020}}
+[HTTP 200]
+
+===== 4b. 依手機查詢：0912345678 =====
+$ curl http://127.0.0.1:3700/api/orders?phone=0912345678
+{"orders":[{"id":"ORD-MVCX7EO7-7764","createdAt":"2026-10-17T21:40:29.575Z","status":"已成立","customer":{"name":"王小明","phone":"0912345678","address":"台北市信義區市府路1號"},"items":[{"productId":"p001","name":"手沖咖啡豆 衣索比亞 250g","emoji":"☕","price":420,"qty":2,"subtotal":840},{"productId":"p005","name":"手寫筆記本 A5","emoji":"📓","price":180,"qty":1,"subtotal":180}],"total":1020}]}
+[HTTP 200]
+
+===== 5. 結帳後購物車應為空 =====
+$ curl http://127.0.0.1:3700/api/cart/e2e_1792273229
+{"cart":{"cartId":"e2e_1792273229","items":[],"count":0,"total":0}}
+[HTTP 200]
+
+# ---- 錯誤案例 ----
+===== E1. 加入已售完商品（預期 409） =====
+$ curl -X POST -H Content-Type: application/json -d {"productId":"p006","qty":1} http://127.0.0.1:3700/api/cart/e2e_1792273229/items
+{"error":{"code":"OUT_OF_STOCK","message":"「多肉小盆栽」庫存不足（剩 0）"}}
+[HTTP 409]
+
+===== E2. 空購物車結帳（預期 409） =====
+$ curl -X POST -H Content-Type: application/json -d {"cartId":"e2e_1792273229","name":"Wang","phone":"0912345678","address":"Taipei"} http://127.0.0.1:3700/api/checkout
+{"error":{"code":"CART_EMPTY","message":"購物車是空的"}}
+[HTTP 409]
+
+===== E3. 壞掉的 JSON（預期 400） =====
+$ curl -X POST -H Content-Type: application/json -d {bad json http://127.0.0.1:3700/api/cart/e2e_1792273229/items
+{"error":{"code":"BAD_REQUEST","message":"JSON 格式錯誤"}}
+[HTTP 400]
+
+===== E4. 不存在的訂單（預期 404） =====
+$ curl http://127.0.0.1:3700/api/orders/ORD-NOPE
+{"error":{"code":"NOT_FOUND","message":"找不到訂單 ORD-NOPE"}}
+[HTTP 404]
+
+===== E5. 非 UTF-8 中文 body（Windows 命令列 -d 中文，預期 400） =====
+$ curl -X POST -H Content-Type: application/json -d {"cartId":"e2e_1792273229","name":"王小明","phone":"0912345678","address":"台北"} http://127.0.0.1:3700/api/checkout
+{"error":{"code":"BAD_REQUEST","message":"請求內容必須是 UTF-8 編碼"}}
+[HTTP 400]
+
+# E2E 完成：訂單 ORD-MVCX7EO7-7764

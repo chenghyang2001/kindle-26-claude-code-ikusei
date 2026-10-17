@@ -1,0 +1,12 @@
+{
+  "name": "k26-ch24-shop",
+  "version": "1.0.0",
+  "description": "K26 第 24 章：手機版電商網站本機版（零相依）",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "e2e": "bash scripts/e2e.sh"
+  },
+  "engines": { "node": ">=20" }
+}

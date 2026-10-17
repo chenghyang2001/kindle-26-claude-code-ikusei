@@ -1,0 +1,11 @@
+我沒拿到 `$DEMO_FLAG` 的值，因為兩次嘗試都被權限機制擋下：
+
+1. `echo $DEMO_FLAG`：被拒絕，原因是「指令中的變數無法在執行前檢查」。權限檢查不允許事前看不出內容的變數展開。
+2. `printenv DEMO_FLAG`：這個寫法沒有變數展開，但系統回應「此指令需要核准」。這個 session 是非互動模式，沒辦法跳出核准視窗。
+
+我沒有再換 PowerShell 的 `$env:DEMO_FLAG` 去試，因為那等於繞過同一個權限檢查。
+
+想讓這個指令能跑，有兩種做法：
+- **在互動 session 裡重跑**，跳出核准提示時按允許。
+- **在本專案 `.claude/settings.local.json` 的 `permissions.allow` 加上 `"Bash(printenv DEMO_FLAG)"`**，之後重跑這個請求就不用核准。
+exit=0

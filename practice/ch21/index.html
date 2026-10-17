@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>待辦清單</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <h1>待辦清單</h1>
+    <form id="new-todo-form" aria-label="新增待辦">
+      <input id="new-todo-input" type="text" maxlength="200" placeholder="要做什麼？按 Enter 新增" autocomplete="off" aria-label="待辦內容">
+      <button type="submit">新增</button>
+    </form>
+    <p id="message" role="status" aria-live="polite"></p>
+    <ul id="todo-list" aria-label="待辦項目"></ul>
+    <footer class="status-bar">
+      <span id="todo-count"></span>
+      <nav id="filters" aria-label="篩選">
+        <button type="button" data-filter="all" class="active">全部</button>
+        <button type="button" data-filter="active">未完成</button>
+        <button type="button" data-filter="completed">已完成</button>
+      </nav>
+      <button type="button" id="clear-completed">清除已完成</button>
+    </footer>
+  </main>
+</body>
+</html>

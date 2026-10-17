@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          { "type": "command", "command": "PYTHONUTF8=1 python \"$CLAUDE_PROJECT_DIR/.claude/hooks/block_env.py\"" }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          { "type": "command", "command": "PYTHONUTF8=1 python \"$CLAUDE_PROJECT_DIR/.claude/hooks/check_py.py\"" }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          { "type": "command", "command": "PYTHONUTF8=1 python \"$CLAUDE_PROJECT_DIR/.claude/hooks/log_session.py\"" }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+我讀不到 `secrets/key.txt`，被權限設定擋下了。
+
+原因在專案的 `.claude/settings.json:4` 有一條拒絕規則：
+
+```json
+"deny": ["Read(./secrets/**)"]
+```
+
+`secrets/` 底下的所有檔案都不准讀取。拒絕規則的優先權高於允許規則，所以 `settings.local.json` 裡的 `allow` 不會讓它放行。這看起來正是本章要示範的機制：把敏感檔案擋在 Claude 讀不到的地方。
+
+我也沒有改用 Bash 或 PowerShell 的 `cat`、`Get-Content` 去繞過，因為這條規則明顯是刻意設下的，繞過它就失去了設它的用意。
+
+如果你確定要讓我讀，有兩種做法：
+1. **暫時移除規則**：把 `.claude/settings.json` 裡的 `"Read(./secrets/**)"` 拿掉，或改窄範圍，重開 session 後再叫我讀。
+2. **自己看**：直接在終端機開這個檔案，需要的話再把內容貼給我。
+
+要我幫你修改設定嗎？
+exit=0

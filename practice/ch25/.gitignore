@@ -1,0 +1,13 @@
+.venv/
+node_modules/
+__pycache__/
+.pytest_cache/
+outputs/
+unsloth_compiled_cache/
+.env
+credentials.json
+token.json
+*.stackdump
+core
+*.core
+*.dmp

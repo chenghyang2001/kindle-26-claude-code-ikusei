@@ -1,0 +1,6 @@
+--- Page 1 ---
+Hello from K26 Chapter 8.
+Agent Skills make Claude reusable.
+
+--- Page 2 ---
+Page two: pypdf extracts this text.

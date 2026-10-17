@@ -1,0 +1,9 @@
+.venv/
+node_modules/
+__pycache__/
+.env
+*.stackdump
+core
+*.core
+*.dmp
+.claude/settings.local.json

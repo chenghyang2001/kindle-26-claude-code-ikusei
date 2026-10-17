@@ -1,0 +1,6 @@
+{
+  "name": "doc-gen",
+  "version": "0.1.0",
+  "description": "產生專案 README.md 的文件外掛（K26 第 11 章練習）",
+  "author": { "name": "chenghyang2001" }
+}

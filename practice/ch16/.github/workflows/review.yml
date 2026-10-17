@@ -1,0 +1,48 @@
+# 自動模式：PR 開啟或推送新 commit 時，Claude 自動審查並用繁體中文留言
+name: Claude PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+# 同一個 PR 連續推送時取消舊的審查，省 API 額度
+concurrency:
+  group: claude-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read         # 審查只需讀程式碼
+      pull-requests: write   # 在 PR 留言
+      issues: read
+      id-token: write
+    steps:
+      - name: 取出程式碼
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Claude 審查 PR
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            REPO: ${{ github.repository }}
+            PR NUMBER: ${{ github.event.pull_request.number }}
+
+            請審查這個 Pull Request 的變更，重點檢查：
+            1. 程式碼品質與可讀性
+            2. 潛在的 bug 或邏輯錯誤
+            3. 安全性問題（機密外洩、注入攻擊等）
+            4. 效能問題
+            5. 測試是否足夠
+
+            規則：
+            - 所有留言一律使用繁體中文（台灣用語），程式碼與專有名詞保留原文。
+            - 具體問題用 inline comment 標在對應行；整體結論用 `gh pr comment` 留一則總結。
+            - 依嚴重度分成「必改」「建議」「備註」三類，沒有問題就簡短說明即可。
+          claude_args: |
+            --allowedTools "mcp__github_inline_comment__create_inline_comment,Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*)"

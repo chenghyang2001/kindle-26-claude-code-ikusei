@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <title>小鋪 Mini Shop</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>🛍️ 小鋪</h1>
+    <span class="cart-pill" aria-live="polite">購物車 <b id="cartCount">0</b></span>
+  </header>
+
+  <main>
+    <!-- 商品列表 -->
+    <section id="view-products" class="view active" aria-label="商品列表">
+      <div id="productGrid" class="grid"></div>
+    </section>
+
+    <!-- 購物車 + 結帳 -->
+    <section id="view-cart" class="view" aria-label="購物車">
+      <h2>購物車</h2>
+      <ul id="cartList" class="list"></ul>
+      <p class="total">總計 <b id="cartTotal">NT$ 0</b></p>
+      <form id="checkoutForm" class="card form" novalidate>
+        <h3>結帳資訊</h3>
+        <label>姓名<input name="name" required maxlength="30" autocomplete="name"></label>
+        <label>手機<input name="phone" required inputmode="numeric" pattern="09\d{8}" placeholder="0912345678" autocomplete="tel"></label>
+        <label>地址<input name="address" required maxlength="100" autocomplete="street-address"></label>
+        <button type="submit" class="btn primary">送出訂單</button>
+      </form>
+    </section>
+
+    <!-- 訂單查詢 -->
+    <section id="view-orders" class="view" aria-label="訂單查詢">
+      <h2>訂單查詢</h2>
+      <form id="orderForm" class="card form search">
+        <label>訂單編號或手機<input name="q" required placeholder="ORD-... 或 09xxxxxxxx"></label>
+        <button type="submit" class="btn primary">查詢</button>
+      </form>
+      <div id="orderResult"></div>
+    </section>
+  </main>
+
+  <nav class="tabbar" aria-label="主選單">
+    <button data-view="products" class="active">🏠<span>商品</span></button>
+    <button data-view="cart">🛒<span>購物車</span></button>
+    <button data-view="orders">📦<span>訂單</span></button>
+  </nav>
+
+  <div id="toast" class="toast" role="status" aria-live="assertive"></div>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

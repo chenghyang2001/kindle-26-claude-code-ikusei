@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>註冊表單</title>
+<style>
+  body { font-family: "Microsoft JhengHei", sans-serif; background: #f4f4f4; display: flex; justify-content: center; padding: 40px 16px; }
+  form { background: #fff; padding: 24px; border-radius: 8px; width: 100%; max-width: 360px; box-shadow: 0 2px 8px rgba(0,0,0,.1); }
+  label { display: block; margin-top: 12px; font-weight: bold; }
+  input { width: 100%; box-sizing: border-box; padding: 8px; margin-top: 4px; border: 1px solid #ccc; border-radius: 4px; }
+  button { margin-top: 20px; width: 100%; padding: 10px; border: none; border-radius: 4px; background: #888; color: #fff; font-size: 16px; cursor: pointer; }
+  #message { margin-top: 16px; padding: 10px; border-radius: 4px; display: none; }
+  #message.success { display: block; background: #e6f7e6; color: #1a7f1a; }
+  #message.error { display: block; background: #fdeaea; color: #b00020; }
+</style>
+</head>
+<body>
+<form id="signupForm" novalidate>
+  <h1>會員註冊</h1>
+  <label for="name">姓名</label>
+  <input id="name" name="name" type="text" required>
+  <label for="email">Email</label>
+  <input id="email" name="email" type="email" required>
+  <label for="password">密碼</label>
+  <input id="password" name="password" type="password" minlength="6" required>
+  <button id="submitBtn" type="submit">送出</button>
+  <div id="message" role="status" aria-live="polite"></div>
+</form>
+<script>
+  // 不送到伺服器：本練習只在頁面顯示結果
+  const form = document.getElementById('signupForm');
+  const message = document.getElementById('message');
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    try {
+      if (!form.checkValidity()) {
+        message.className = 'error';
+        message.textContent = '請填寫完整：姓名、正確的 Email、至少 6 碼密碼。';
+        return;
+      }
+      const name = document.getElementById('name').value.trim();
+      message.className = 'success';
+      // 用 textContent 避免使用者輸入被當成 HTML
+      message.textContent = `註冊成功！歡迎 ${name}`;
+    } catch (err) {
+      message.className = 'error';
+      message.textContent = `發生錯誤：${err.message}`;
+    }
+  });
+</script>
+</body>
+</html>

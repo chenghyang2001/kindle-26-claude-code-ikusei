@@ -1,0 +1,11 @@
+我沒拿到 `$DEMO_FLAG` 的值，因為兩次嘗試都被權限檢查擋下，指令根本沒有執行：
+
+- **Bash** 執行 `echo $DEMO_FLAG`：被拒絕，原因是指令中的變數無法在執行前檢查（"A variable in this command can't be checked before it runs"）。
+- **PowerShell** 執行 `$env:DEMO_FLAG`：一樣被擋，`$env:DEMO_FLAG` 這部分需要你核准。
+
+我沒有再換其他方式繞過這個檢查。你可以擇一處理：
+
+1. **在互動模式下核准**這個指令，我再執行一次。
+2. **加入允許清單**：把 `Bash(echo $DEMO_FLAG)` 寫進本專案的 `.claude/settings.local.json` 的 `permissions.allow`。要的話我可以幫你加。
+3. **自己在終端機執行** `echo $DEMO_FLAG`，直接看結果。
+exit=0

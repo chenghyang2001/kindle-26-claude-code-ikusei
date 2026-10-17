@@ -1,0 +1,30 @@
+## 我目前看到的專案規則：共 3 個來源
+
+### 1. `CLAUDE.md`（專案規則，進版控）
+
+**本專案例外**
+- 這是 Kindle 教學 demo，用 kindle-drill 快速模式，所以不套用全域的「三 agent 鐵律」。我直接寫檔，不派 writer、QA、reviewer。
+- 不問複雜度，也不問要不要用快速模式，因為已經選定快速模式。
+- 遇到選擇題一律採用推薦選項，不停下來問。
+- 不改全域 `~/.claude/settings.json`。設定只寫在 `.claude/settings.local.json`。
+
+**K26 第 7 章練習規則**
+- 程式碼註解和 docstring 用繁體中文。
+- 測試檔放在 `tests/`，檔名格式是 `test_*.py`。
+- 新增功能時，同一次產出要附上測試。
+
+### 2. `docs/style.md`（風格指南，由 `CLAUDE.md` 用 `@docs/style.md` 匯入）
+- Python 縮排 4 個空格，命名用 snake_case，常數全大寫。
+- 每行不超過 100 字元。
+- 函式不超過 30 行，巢狀不超過 3 層，優先用 guard clause 提前 return。
+- 讀寫檔案要指定 `encoding="utf-8"`。
+- 不寫裸 `except:`，要捕捉具體的例外並輸出錯誤訊息。
+- 不硬編碼使用者路徑，改用 `pathlib.Path.home()`。
+
+### 3. `CLAUDE.local.md`（個人偏好，不進版控）
+- 回覆要簡短，先講結論，需要時再補細節。
+- 回覆用繁體中文。
+
+---
+
+另外還有全域的 `~/.claude/CLAUDE.md` 和它匯入的 `instructions/*.md`，例如程式碼品質、Git 流程、禁止硬編碼路徑。那些是跨專案的規則，不算這個專案的。兩邊衝突時以專案的 `CLAUDE.md` 為準，像是三 agent 鐵律在這裡就不適用。

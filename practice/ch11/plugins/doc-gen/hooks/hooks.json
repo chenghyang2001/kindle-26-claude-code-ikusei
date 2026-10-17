@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"[doc-gen hook] Write 工具已執行 $(date '+%Y-%m-%d %H:%M:%S')\" >> \"${CLAUDE_PROJECT_DIR:-.}/doc-gen-hook.log\""
+          }
+        ]
+      }
+    ]
+  }
+}

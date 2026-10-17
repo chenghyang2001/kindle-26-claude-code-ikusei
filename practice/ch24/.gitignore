@@ -1,0 +1,11 @@
+node_modules/
+.venv/
+data/db.json
+data/db.json.tmp
+server.log
+.env
+*.stackdump
+core
+*.core
+*.dmp
+.vercel/

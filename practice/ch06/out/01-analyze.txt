@@ -1,0 +1,29 @@
+以下是 3 個問題與修正建議：
+
+### 1. `average()` 傳入空清單會崩潰
+`len(numbers)` 等於 0 時，會拋出 `ZeroDivisionError`。
+
+**修正**：先檢查是否為空，再決定要拋出比較清楚的錯誤，或回傳預設值。順便改用內建的 `sum()`：
+```python
+def average(numbers):
+    if not numbers:
+        raise ValueError("numbers 不可為空")
+    return sum(numbers) / len(numbers)
+```
+
+### 2. `read_config()` 開檔後沒有關閉
+`open()` 之後沒有 `close()`，檔案會一直佔著。發生例外時更不會被釋放。
+
+**修正**：改用 `with`，離開區塊時會自動關閉檔案。
+
+### 3. 開檔沒有指定 `encoding`
+Windows 預設用 cp950 讀檔。設定檔如果是 UTF-8 而且含中文，就會出現 `UnicodeDecodeError` 或亂碼。
+
+**修正**（2、3 一起改）：
+```python
+def read_config(path):
+    with open(path, encoding="utf-8") as f:
+        return f.read()
+```
+
+另外，檔案不存在時會拋出 `FileNotFoundError`，呼叫端最好捕捉這個錯誤並顯示清楚的訊息。

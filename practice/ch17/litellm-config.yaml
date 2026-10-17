@@ -1,0 +1,45 @@
+# LiteLLM proxy 設定範本（K26 第 17 章：讓 Claude Code 接上自訂模型）
+# 所有金鑰與專案 ID 一律用 os.environ/變數名 佔位，LiteLLM 啟動時才從環境變數讀取，
+# 這樣本檔可以安全進版控，不會洩漏任何機密。
+
+model_list:
+  # 1) Google AI Studio 的 Gemini（用 API key 驗證）
+  - model_name: gemini-pro
+    litellm_params:
+      model: gemini/gemini-2.5-pro
+      api_key: os.environ/GEMINI_API_KEY
+
+  - model_name: gemini-flash
+    litellm_params:
+      model: gemini/gemini-2.5-flash
+      api_key: os.environ/GEMINI_API_KEY
+
+  # 2) Vertex AI（用 GCP 服務帳號驗證；credentials 是 JSON 金鑰檔的路徑）
+  - model_name: vertex-gemini-pro
+    litellm_params:
+      model: vertex_ai/gemini-2.5-pro
+      vertex_project: os.environ/VERTEX_PROJECT
+      vertex_location: os.environ/VERTEX_LOCATION
+      vertex_credentials: os.environ/GOOGLE_APPLICATION_CREDENTIALS
+
+  # Vertex AI 上也能跑 Claude（Model Garden），名稱沿用 Claude 官方型號較不易混淆
+  - model_name: vertex-claude-sonnet
+    litellm_params:
+      model: vertex_ai/claude-sonnet-4-5
+      vertex_project: os.environ/VERTEX_PROJECT
+      vertex_location: os.environ/VERTEX_LOCATION
+      vertex_credentials: os.environ/GOOGLE_APPLICATION_CREDENTIALS
+
+  # 3) 本機 Ollama（不需金鑰；用 ollama_chat 前綴才會走 /api/chat，支援 tool calling）
+  - model_name: ollama-coder
+    litellm_params:
+      model: ollama_chat/qwen2.5-coder:7b
+      api_base: os.environ/OLLAMA_API_BASE
+
+litellm_settings:
+  # Claude Code 會送出部分模型不認得的參數（如 thinking、cache_control），直接丟掉避免 400
+  drop_params: true
+
+general_settings:
+  # proxy 的主金鑰；Claude Code 端的 ANTHROPIC_AUTH_TOKEN 必須與此相同
+  master_key: os.environ/LITELLM_MASTER_KEY

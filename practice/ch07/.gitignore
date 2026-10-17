@@ -1,0 +1,9 @@
+# 個人專屬的 Claude 設定，不進版控
+CLAUDE.local.md
+.claude/settings.local.json
+
+# 當機／垃圾檔
+*.stackdump
+core
+*.core
+*.dmp

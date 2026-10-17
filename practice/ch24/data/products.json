@@ -1,0 +1,8 @@
+[
+  { "id": "p001", "name": "手沖咖啡豆 衣索比亞 250g", "price": 420, "stock": 20, "emoji": "☕", "description": "淺焙，柑橘與花香調性" },
+  { "id": "p002", "name": "保溫隨行杯 450ml", "price": 680, "stock": 15, "emoji": "🥤", "description": "雙層真空，保冷保溫 12 小時" },
+  { "id": "p003", "name": "帆布托特包", "price": 550, "stock": 10, "emoji": "👜", "description": "厚磅帆布，可放 14 吋筆電" },
+  { "id": "p004", "name": "無線藍牙耳機", "price": 1290, "stock": 8, "emoji": "🎧", "description": "降噪，續航 24 小時" },
+  { "id": "p005", "name": "手寫筆記本 A5", "price": 180, "stock": 50, "emoji": "📓", "description": "點格內頁 120 頁" },
+  { "id": "p006", "name": "多肉小盆栽", "price": 250, "stock": 0, "emoji": "🪴", "description": "已售完，示範缺貨狀態" }
+]

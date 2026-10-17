@@ -1,0 +1,13 @@
+{
+  "name": "k26-local",
+  "owner": { "name": "chenghyang2001" },
+  "metadata": { "description": "K26 第 11 章練習用本機 marketplace" },
+  "plugins": [
+    {
+      "name": "doc-gen",
+      "source": "./plugins/doc-gen",
+      "description": "產生專案 README.md 的文件外掛",
+      "version": "0.1.0"
+    }
+  ]
+}

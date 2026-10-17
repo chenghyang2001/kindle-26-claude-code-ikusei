@@ -1,0 +1,6 @@
+.env
+*.stackdump
+core
+*.core
+*.dmp
+__pycache__/

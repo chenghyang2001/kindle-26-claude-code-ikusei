@@ -1,0 +1,6 @@
+.venv/
+node_modules/
+*.stackdump
+.DS_Store
+xcuserdata/
+DerivedData/
