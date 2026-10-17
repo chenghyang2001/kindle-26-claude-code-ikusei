@@ -32,7 +32,13 @@
 | 22 | 2026-10-18 | 3 分 | nbformat 產 sales.ipynb→src 三模組＋Streamlit app，curl 200、pytest 7 passed，另加 AppTest；notebook 未實際執行（無 Jupyter），未部署 |
 | 23 | 2026-10-18 | 4 分 | 只產 SwiftUI 原始檔 11 支＋README（Xcode 開法、Claude 接法）；Windows 無 swiftc，未編譯未建置 |
 | 24 | 2026-10-18 | 6 分 | CLAUDE.md 規範＋手機電商本機版（JSON 存檔），curl 列商品→購物車→結帳→查訂單＋錯誤情況共 13 筆；Vercel／Neon 只寫 DEPLOY.md，前端未截圖 |
+| 25 | 2026-10-18 | 4 分 | spec.md＋train.py（Unsloth GRPO）＋infer.py＋Colab README，py_compile 與獎勵函式自測通過；無 GPU 未安裝 torch／unsloth、未訓練 |
 
 ## 環境備註（2026-10-18 Yama-Desktop）
 
 - Claude Code 2.1.302（看門狗驗證版 2.1.295，開跑後確認 log 有「錨點校準通過」）
+- 25 章全數完成：2026-10-18 03:48–05:46，約 2 小時（快速模式，未經 QA／審查）
+- isolated 章（09–11）開窗時會跳「Allow external CLAUDE.md file imports?」，選預設 No（符合排除全域設定的目的）
+- 同一 session 中途新建的 skill／agent 定義要到下一輪或新 session 才載入（ch08、ch14）
+- 全程比對全域 ~/.claude/settings.json 與 ~/.claude/plugins/*.json 皆無變動；ch11 plugin 安裝留在 ~/.claude/plugins/cache 的副本已刪
+- 練習資料夾 k26-ch01～25-practice 都只在本機 commit，沒有遠端
