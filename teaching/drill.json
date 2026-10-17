@@ -1,0 +1,208 @@
+{
+  "book": "K26",
+  "repo": "kindle-26-claude-code-ikusei",
+  "title": "Claude Code 育成手冊",
+  "prompt_source": "teaching/LESSON-PLAN.md",
+  "chapters": [
+    {
+      "id": "01",
+      "folder": "k26-ch01-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": [],
+      "note": "概念章：只寫 CONCEPTS.md"
+    },
+    {
+      "id": "02",
+      "folder": "k26-ch02-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": [],
+      "note": "概念章：只寫 ARCHITECTURE.md"
+    },
+    {
+      "id": "03",
+      "folder": "k26-ch03-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": [],
+      "note": "不可執行 /login、/logout"
+    },
+    {
+      "id": "04",
+      "folder": "k26-ch04-practice",
+      "mode": "normal",
+      "minutes": 15,
+      "parallel_with": [],
+      "note": "範例 repo（fingerprints）網址未取得；教練先把 kindle-26-claude-code-育成手冊/epic-flashcard-review 複製進來（排除 .git、node_modules、備份資料夾）當現有專案"
+    },
+    {
+      "id": "05",
+      "folder": "k26-ch05-practice",
+      "mode": "normal",
+      "minutes": 10,
+      "parallel_with": [],
+      "note": "斜線指令由教練逐一送；略過 /logout /login /upgrade /statusline /doctor /config 修改"
+    },
+    {
+      "id": "06",
+      "folder": "k26-ch06-practice",
+      "mode": "normal",
+      "minutes": 10,
+      "parallel_with": [],
+      "note": "練習中的 claude -p 會產生巢狀 session，精華版會自動略過"
+    },
+    {
+      "id": "07",
+      "folder": "k26-ch07-practice",
+      "mode": "normal",
+      "minutes": 10,
+      "parallel_with": [],
+      "note": "全域 ~/.claude/CLAUDE.md 只說明不修改"
+    },
+    {
+      "id": "08",
+      "folder": "k26-ch08-practice",
+      "mode": "normal",
+      "minutes": 15,
+      "parallel_with": [],
+      "note": "pypdf 裝在專案 .venv"
+    },
+    {
+      "id": "09",
+      "folder": "k26-ch09-practice",
+      "mode": "isolated",
+      "minutes": 10,
+      "parallel_with": [],
+      "note": "設定只寫專案層 .claude/"
+    },
+    {
+      "id": "10",
+      "folder": "k26-ch10-practice",
+      "mode": "isolated",
+      "minutes": 15,
+      "parallel_with": [],
+      "note": "hooks 只寫專案層 .claude/settings.json"
+    },
+    {
+      "id": "11",
+      "folder": "k26-ch11-practice",
+      "mode": "isolated",
+      "minutes": 15,
+      "parallel_with": [],
+      "note": "plugin 安裝一律 --scope project，結束前 uninstall，比對全域 settings.json"
+    },
+    {
+      "id": "12",
+      "folder": "k26-ch12-practice",
+      "mode": "normal",
+      "minutes": 15,
+      "parallel_with": [],
+      "note": "claude mcp add --scope project；Chrome DevTools MCP 用 headless 對本機 127.0.0.1 頁面"
+    },
+    {
+      "id": "13",
+      "folder": "k26-ch13-practice",
+      "mode": "normal",
+      "minutes": 10,
+      "parallel_with": [],
+      "note": "只實際接不需金鑰的 server；其餘寫範本"
+    },
+    {
+      "id": "14",
+      "folder": "k26-ch14-practice",
+      "mode": "normal",
+      "minutes": 15,
+      "parallel_with": [],
+      "note": "子代理只放專案 .claude/agents/"
+    },
+    {
+      "id": "15",
+      "folder": "k26-ch15-practice",
+      "mode": "normal",
+      "minutes": 10,
+      "parallel_with": [],
+      "note": "輸出樣式只放專案 .claude/output-styles/"
+    },
+    {
+      "id": "16",
+      "folder": "k26-ch16-practice",
+      "mode": "normal",
+      "minutes": 10,
+      "parallel_with": [],
+      "note": "只寫 workflow yaml，不裝 GitHub App、不 push"
+    },
+    {
+      "id": "17",
+      "folder": "k26-ch17-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": [],
+      "note": "只寫 LiteLLM 設定範本，不改環境變數"
+    },
+    {
+      "id": "18",
+      "folder": "k26-ch18-practice",
+      "mode": "normal",
+      "minutes": 5,
+      "parallel_with": [],
+      "note": "網頁版需登入 claude.ai，略過操作，只寫 WEB-NOTES.md"
+    },
+    {
+      "id": "19",
+      "folder": "k26-ch19-practice",
+      "mode": "normal",
+      "minutes": 20,
+      "parallel_with": [],
+      "note": "uvx 執行 github/spec-kit"
+    },
+    {
+      "id": "20",
+      "folder": "k26-ch20-practice",
+      "mode": "normal",
+      "minutes": 10,
+      "parallel_with": [],
+      "note": "ccusage 只留日期與合計欄；GLM／Ollama 只寫步驟"
+    },
+    {
+      "id": "21",
+      "folder": "k26-ch21-practice",
+      "mode": "normal",
+      "minutes": 20,
+      "parallel_with": [],
+      "note": "GitHub Issues 同步略過，只寫在 NOTES.md"
+    },
+    {
+      "id": "22",
+      "folder": "k26-ch22-practice",
+      "mode": "normal",
+      "minutes": 15,
+      "parallel_with": [],
+      "note": "不部署 Streamlit Cloud"
+    },
+    {
+      "id": "23",
+      "folder": "k26-ch23-practice",
+      "mode": "normal",
+      "minutes": 10,
+      "parallel_with": [],
+      "note": "非 Mac：只產生 SwiftUI 原始碼，不建置"
+    },
+    {
+      "id": "24",
+      "folder": "k26-ch24-practice",
+      "mode": "normal",
+      "minutes": 20,
+      "parallel_with": [],
+      "note": "只在本機跑，不部署 Vercel／Neon"
+    },
+    {
+      "id": "25",
+      "folder": "k26-ch25-practice",
+      "mode": "normal",
+      "minutes": 10,
+      "parallel_with": [],
+      "note": "無 GPU：只寫程式並 py_compile，不安裝 torch／unsloth"
+    }
+  ]
+}
