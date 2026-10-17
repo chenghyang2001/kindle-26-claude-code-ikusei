@@ -16,6 +16,7 @@
 | 06 | 2026-10-18 | 5 分 | 4 支腳本實跑（單次／管道／JSON 取 result／--allowedTools Read 寫檔被擋）；需清 CLAUDE* 變數＋提供 stdin，--resume 只寫說明 |
 | 07 | 2026-10-18 | 3 分 | CLAUDE.md＋CLAUDE.local.md（gitignore）＋@docs/style.md 匯入，claude -p 與 /memory 都確認三份被讀到；全域 CLAUDE.md 只寫說明 |
 | 08 | 2026-10-18 | 6 分 | pdf-text skill（pypdf 裝專案 .venv）轉出 sample.txt；同 session 新建的 skill 下一輪才載入，第一次是直接跑腳本、第二次才正式經 Skill 觸發 |
+| 09 | 2026-10-18 | 6 分 | 專案 settings deny 擋下讀 secrets、env DEMO_FLAG 以 printenv 驗證（echo $VAR 被權限擋）；isolated 開窗多一個外部匯入確認，選預設 No |
 
 ## 環境備註（2026-10-18 Yama-Desktop）
 
