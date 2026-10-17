@@ -21,6 +21,7 @@
 | 11 | 2026-10-18 | 4 分 | 本機 marketplace＋doc-gen（指令／skill／hook）project scope 安裝實測後移除；install 仍會在 ~/.claude/plugins/cache 留副本（已刪），全域 settings 與 plugins 索引比對一致 |
 | 12 | 2026-10-18 | 4 分 | chrome-devtools MCP（project scope、headless）開本機 127.0.0.1 表單、改樣式、填表送出並截圖；表單頁由 Claude 自建 |
 | 13 | 2026-10-18 | 5 分 | filesystem＋sequential-thinking 實接（mcp list ✔ Connected，Windows 需 cmd /c npx）；需 token 的 5 類只寫 MCP-CATALOG.md 範本 |
+| 14 | 2026-10-18 | 6 分 | 專案 agents 2 個＋修 bug；兩個 worktree 平行子代理後合併、清理；同 session 新建的 agent 定義未載入，改由 general-purpose 照定義執行；書上兩個終端機改成一個主對話派兩個子代理 |
 
 ## 環境備註（2026-10-18 Yama-Desktop）
 
